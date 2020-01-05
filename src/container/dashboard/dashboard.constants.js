@@ -1,0 +1,5 @@
+export const constDashboard = {
+    FETCH_MOVIES:'FETCH_MOVIES',
+    FAIL_MOVIES:'FAIL_MOVIES',
+    SUCCESS_MOVIES:'SUCCESS_MOVIES',
+}
