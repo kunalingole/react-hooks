@@ -7,10 +7,11 @@ const initialState = user ? { loggedIn: true, user } : {};
 export function login(state = initialState, action) {
     switch(action.type){
        case userConstants.LOGIN_SUCCESS:
+           console.log("hi");
             return {
                 ...state,
                 loggingIn: true,
-                token: action.payload.token
+                
             };
 
         default :
