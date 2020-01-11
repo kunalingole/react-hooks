@@ -1,8 +1,8 @@
 import React from 'react';
-export const UiGlobalNotification = (props) =>{
+export const UiGlobalNotification = ({ message }) =>{
   return (
     <div className="alert alert-danger" role="alert">
-      { props.message.message }
+      { message }
      </div>
   );
 }
