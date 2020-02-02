@@ -1,19 +1,15 @@
-import React,{ useState }  from "react";
+import React from "react";
 import { useDispatch } from 'react-redux';
 import { FetchApi } from '../../components/fetchApi';
 import {constDashboard} from './dashboard.constants';
 import { UiGlobalNotification } from '../../components/notification/ui-global-notification';
-
 export const Dashboard = () =>{
   const dispatch = useDispatch();
   const [ {data, isLoading, isError }]= FetchApi('/movies',{'request':'movies '}, 'GET');
   console.log(data);
-
-
   if(!isError && Object.keys(data).length>0) {
     dispatch({type: constDashboard.SUCCESS_MOVIES, payload: data });
  }
-
   return (
       <>
        { isError.message &&   <UiGlobalNotification message={isError}/> }

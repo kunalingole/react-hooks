@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from 'react-redux';
 import { Link }  from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -7,13 +7,12 @@ import { formRule } from '../../../components/formComp/formRule';
 import { userConstants } from './login.constants';
 import { UiGlobalNotification } from '../../../components/notification/ui-global-notification';
 import { FetchApi} from '../../../components/fetchApi';
-import History from '../../../services/history';
 const  { LOGIN_SUCCESS } = userConstants;
 
 
 export const Login = (props) => {
   
-  const { register, errors, handleSubmit, reset} = useForm({mode: 'onBlur'});
+  const { register, errors, handleSubmit} = useForm({mode: 'onBlur'});
   const [ {data, isLoading, isError }, setData, setUrl]= FetchApi('/auth', {}, 'POST');
   const dispatch = useDispatch();
   let setError = data.error? data.message:isError.message
